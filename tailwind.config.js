@@ -14,6 +14,14 @@ export default {
       },
       letterSpacing: {
         'tight': '-0.02em',
+      },
+      screens: {
+        'xs': '475px',
+        '3xl': '1600px',
+      },
+      spacing: {
+        '18': '4.5rem',
+        '34': '8.5rem',
       }
     },
   },

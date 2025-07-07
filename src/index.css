@@ -6,7 +6,16 @@
 @layer base {
   body {
     font-family: 'Inter', sans-serif;
-    overflow: hidden;
+    overflow-x: hidden;
+  }
+  
+  html {
+    overflow-x: hidden;
+  }
+
+  /* Ensure proper viewport handling */
+  * {
+    box-sizing: border-box;
   }
 }
 
@@ -25,7 +34,7 @@
   
   /* Custom scrollbar for webkit browsers */
   .overflow-y-auto::-webkit-scrollbar {
-    width: 6px;
+    width: 4px;
   }
   
   .overflow-y-auto::-webkit-scrollbar-track {
@@ -34,7 +43,7 @@
   
   .overflow-y-auto::-webkit-scrollbar-thumb {
     background-color: #4B5563;
-    border-radius: 3px;
+    border-radius: 2px;
   }
   
   .overflow-y-auto::-webkit-scrollbar-thumb:hover {
@@ -44,5 +53,69 @@
   /* Prevent horizontal scrolling */
   .overflow-x-hidden {
     overflow-x: hidden !important;
+  }
+
+  /* Safe area for mobile devices */
+  .safe-area-pb {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  /* Mobile optimizations */
+  @media (max-width: 768px) {
+    .overflow-y-auto::-webkit-scrollbar {
+      width: 2px;
+    }
+  }
+
+  /* Animation utilities */
+  .animate-in {
+    animation-fill-mode: both;
+  }
+
+  .fade-in {
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  .zoom-in {
+    animation: zoomIn 0.3s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes zoomIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* Responsive text scaling */
+  @media (min-width: 640px) {
+    .text-responsive {
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .text-responsive {
+      font-size: clamp(1.25rem, 3vw, 1.5rem);
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .text-responsive {
+      font-size: clamp(1.5rem, 3.5vw, 2rem);
+    }
   }
 }

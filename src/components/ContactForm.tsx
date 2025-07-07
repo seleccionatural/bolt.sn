@@ -66,15 +66,15 @@ Artwork: ${artworkTitle}
   if (isSubmitted) {
     return (
       <div 
-        className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-[60]"
+        className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-[110] p-4"
         onClick={handleBackdropClick}
       >
-        <div className="bg-gray-800 rounded-[38px] p-8 max-w-md mx-4 text-center animate-in fade-in zoom-in duration-300">
-          <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
-            <Check className="w-8 h-8 text-white" />
+        <div className="bg-gray-800 rounded-2xl md:rounded-[38px] p-6 md:p-8 max-w-sm md:max-w-md mx-4 text-center animate-in fade-in zoom-in duration-300">
+          <div className="w-12 h-12 md:w-16 md:h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-3 md:mb-4">
+            <Check className="w-6 h-6 md:w-8 md:h-8 text-white" />
           </div>
-          <h3 className="text-white text-xl font-semibold mb-2">Email Sent!</h3>
-          <p className="text-gray-300">Your inquiry has been sent successfully.</p>
+          <h3 className="text-white text-lg md:text-xl font-semibold mb-2">Email Sent!</h3>
+          <p className="text-gray-300 text-sm md:text-base">Your inquiry has been sent successfully.</p>
         </div>
       </div>
     );
@@ -82,24 +82,24 @@ Artwork: ${artworkTitle}
 
   return (
     <div 
-      className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-[60]"
+      className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-[110] p-4"
       onClick={handleBackdropClick}
     >
-      <div className="bg-gray-800 rounded-[38px] p-8 max-w-md mx-4 relative animate-in fade-in zoom-in duration-300">
+      <div className="bg-gray-800 rounded-2xl md:rounded-[38px] p-6 md:p-8 max-w-sm md:max-w-md mx-4 relative animate-in fade-in zoom-in duration-300 w-full">
         <button
           onClick={onClose}
-          className="absolute top-6 right-6 text-gray-400 hover:text-white transition-colors duration-200"
+          className="absolute top-4 right-4 md:top-6 md:right-6 text-gray-400 hover:text-white transition-colors duration-200"
         >
-          <X size={20} />
+          <X size={18} className="md:w-5 md:h-5" />
         </button>
 
-        <div className="mb-6">
-          <h3 className="text-white text-xl font-semibold mb-2">Contact for Purchase</h3>
-          <p className="text-gray-400 text-sm">{artworkTitle}</p>
+        <div className="mb-4 md:mb-6">
+          <h3 className="text-white text-lg md:text-xl font-semibold mb-1 md:mb-2">Contact for Purchase</h3>
+          <p className="text-gray-400 text-xs md:text-sm">{artworkTitle}</p>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div className="flex gap-3">
+        <form onSubmit={handleSubmit} className="space-y-3 md:space-y-4">
+          <div className="flex flex-col md:flex-row gap-3">
             <div className="flex-1">
               <input
                 type="text"
@@ -108,7 +108,7 @@ Artwork: ${artworkTitle}
                 value={formData.name}
                 onChange={handleInputChange}
                 required
-                className="w-full bg-gray-750 text-white placeholder-gray-500 px-4 py-3 rounded-lg border-none focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm"
+                className="w-full bg-gray-750 text-white placeholder-gray-500 px-3 md:px-4 py-2 md:py-3 rounded-lg border-none focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm"
               />
             </div>
             <div className="flex-1">
@@ -119,7 +119,7 @@ Artwork: ${artworkTitle}
                 value={formData.email}
                 onChange={handleInputChange}
                 required
-                className="w-full bg-gray-750 text-white placeholder-gray-500 px-4 py-3 rounded-lg border-none focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm"
+                className="w-full bg-gray-750 text-white placeholder-gray-500 px-3 md:px-4 py-2 md:py-3 rounded-lg border-none focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm"
               />
             </div>
           </div>
@@ -130,24 +130,24 @@ Artwork: ${artworkTitle}
               placeholder="Comments"
               value={formData.comments}
               onChange={handleInputChange}
-              rows={4}
-              className="w-full bg-gray-750 text-white placeholder-gray-500 px-4 py-3 rounded-lg border-none focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm resize-none"
+              rows={3}
+              className="w-full bg-gray-750 text-white placeholder-gray-500 px-3 md:px-4 py-2 md:py-3 rounded-lg border-none focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm resize-none"
             />
           </div>
 
           <button
             type="submit"
             disabled={isSubmitting}
-            className="bg-gray-750 hover:bg-gray-600 disabled:bg-gray-700 text-white font-semibold py-3 px-8 rounded-full transition-colors duration-200 text-sm flex items-center justify-center gap-2 mx-auto"
+            className="bg-gray-750 hover:bg-gray-600 disabled:bg-gray-700 text-white font-semibold py-2 md:py-3 px-6 md:px-8 rounded-full transition-colors duration-200 text-sm flex items-center justify-center gap-2 mx-auto"
           >
             {isSubmitting ? (
               <>
-                <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                <div className="w-3 h-3 md:w-4 md:h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
                 Sending...
               </>
             ) : (
               <>
-                <Mail size={16} />
+                <Mail size={14} className="md:w-4 md:h-4" />
                 Send
               </>
             )}
